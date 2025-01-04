@@ -1,7 +1,6 @@
 // src/components/Conversation.jsx
 import { conversation } from "../data/conversation";
 import "./Conversation.css";
-import { FaBrain, FaPlay } from "react-icons/fa"; // Import icons
 
 const Conversation = () => {
   return (
