@@ -3,6 +3,16 @@ import { conversation } from "../data/conversation";
 import "./conversation.css";
 
 const Conversation = () => {
+  // Helper function to format text with XML tags
+  const formatText = (text) => {
+    return text.split(/(<[^>]+>)/).map((part, index) => {
+      if (part.startsWith("<") && part.endsWith(">")) {
+        return <span key={index}>{part}</span>;
+      }
+      return part;
+    });
+  };
+
   return (
     <div className="conversation">
       {conversation.map((entry, index) => (
@@ -23,7 +33,7 @@ const Conversation = () => {
               </span>
             </div>
           )}
-          <pre className="text">{entry.text}</pre>
+          <pre className="text">{formatText(entry.text)}</pre>
         </div>
       ))}
     </div>
