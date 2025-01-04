@@ -1,6 +1,6 @@
 // src/components/Conversation.jsx
 import { conversation } from "../data/conversation";
-import "./Conversation.css";
+import "./conversation.css";
 
 const Conversation = () => {
   return (
