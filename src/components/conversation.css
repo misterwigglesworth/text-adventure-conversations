@@ -84,6 +84,27 @@
   opacity: 0.7;
 }
 
+.narration .text .celebration {
+  color: #80ffdb;
+  font-weight: bold;
+  /* animation: pulse 2s ease-in-out infinite; */
+  position: relative;
+  text-shadow: 0 0 20px rgba(128, 255, 219, 0.8),
+                 0 0 30px rgba(128, 255, 219, 0.6);
+}
+
+@keyframes pulse {
+  0% {
+    text-shadow: 0 0 10px rgba(128, 255, 219, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(128, 255, 219, 0.8),
+                 0 0 30px rgba(128, 255, 219, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(128, 255, 219, 0.5);
+  }
+}
 .conversation {
   max-width: 800px;
   width: 100%;

@@ -24,47 +24,56 @@ const interactableWords = {
 const Conversation = () => {
   const formatText = (text, messageType) => {
     // First handle XML tags
-    const parts = text.split(/(<[^>]+>)/).map((part, index) => {
-      if (part.startsWith("<") && part.endsWith(">")) {
-        return (
-          <span key={`xml-${index}`} className="xml-tag">
-            {part}
-          </span>
-        );
-      }
+    const parts = text
+      .split(/(<[^>]+>|Congratulations!)/)
+      .map((part, index) => {
+        if (part.startsWith("<") && part.endsWith(">")) {
+          return (
+            <span key={`xml-${index}`} className="xml-tag">
+              {part}
+            </span>
+          );
+        }
+        if (part === "Congratulations!") {
+          return (
+            <span key={`celebration-${index}`} className="celebration">
+              {part}
+            </span>
+          );
+        }
 
-      // Only process interactable words for narration messages
-      if (messageType === "narration" || messageType === "command") {
-        const words = part.split(/(\s+)/);
-        return words.map((word, wordIndex) => {
-          const lowerWord = word.toLowerCase();
-          const interactions = [];
+        // Only process interactable words for narration messages
+        if (messageType === "narration" || messageType === "command") {
+          const words = part.split(/(\s+)/);
+          return words.map((word, wordIndex) => {
+            const lowerWord = word.toLowerCase();
+            const interactions = [];
 
-          if (interactableWords.examinable.includes(lowerWord))
-            interactions.push("examinable");
-          if (interactableWords.useable.includes(lowerWord))
-            interactions.push("useable");
-          if (interactableWords.takeable.includes(lowerWord))
-            interactions.push("takeable");
+            if (interactableWords.examinable.includes(lowerWord))
+              interactions.push("examinable");
+            if (interactableWords.useable.includes(lowerWord))
+              interactions.push("useable");
+            if (interactableWords.takeable.includes(lowerWord))
+              interactions.push("takeable");
 
-          if (interactions.length > 0) {
-            return (
-              <span
-                key={`word-${index}-${wordIndex}`}
-                className={`interactive ${interactions.join(" ")}`}
-                data-interactions={interactions.join(", ")}
-              >
-                {word}
-              </span>
-            );
-          }
-          return word;
-        });
-      }
+            if (interactions.length > 0) {
+              return (
+                <span
+                  key={`word-${index}-${wordIndex}`}
+                  className={`interactive ${interactions.join(" ")}`}
+                  data-interactions={interactions.join(", ")}
+                >
+                  {word}
+                </span>
+              );
+            }
+            return word;
+          });
+        }
 
-      // For non-narration messages, return the text as-is
-      return part;
-    });
+        // For non-narration messages, return the text as-is
+        return part;
+      });
 
     return parts;
   };

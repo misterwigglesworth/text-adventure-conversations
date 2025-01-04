@@ -362,7 +362,7 @@ export const conversation = [
     text: `You flip the switch. Power is restored to the house!
 
 Congratulations! You've restored power to the house!
-The lights flicker on throughout the building, and the
+The l\u200Bights flicker on throughout the building, and the
 familiar hum of electronics returns. Well done!`,
   },
   {
