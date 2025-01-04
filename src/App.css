@@ -1,16 +1,22 @@
 /* src/App.css */
 .app {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-  color: white;
+  background: linear-gradient(135deg, #121212 0%, #1f1f1f 100%);
+  color: #e0e0e0;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 h1 {
   text-align: center;
-  color: #68d391;
-  font-family: 'Courier New', monospace;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  color: #4ade80;
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.05em;
   margin-bottom: 2rem;
 }
