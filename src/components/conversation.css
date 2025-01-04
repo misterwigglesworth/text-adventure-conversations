@@ -1,59 +1,113 @@
-/* src/components/Conversation.css */
+/* src/components/conversation.css */
 .conversation {
   max-width: 800px;
   margin: 2rem auto;
-  padding: 1rem;
-  background-color: #1e1e1e;
-  border-radius: 8px;
-  font-family: 'IBM Plex Mono', monospace;
+  padding: 1.5rem;
+  background-color: rgba(30, 30, 46, 0.7);
+  border-radius: 16px;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 0.95rem;
   letter-spacing: -0.2px;
   line-height: 1.6;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .message {
   margin-bottom: 1.5rem;
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 1.25rem;
+  border-radius: 12px;
+  animation: messageSlideIn 0.3s ease-out forwards;
+  opacity: 0;
+  transform: translateY(10px);
+  position: relative;
 }
 
+/* Game narration styling */
 .narration {
-  color: #ffffff;
-  background-color: #2a2a2a;
-  border-left: 4px solid #666;
+  color: #e2e8f0;
+  background-color: rgba(42, 42, 58, 0.8);
+  border-left: 4px solid #a5f3fc;
   font-weight: 400;
+  margin-left: 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.thinking {
-  color: #d1d1d1;
-  background-color: #2d3748;
-  border: 1px solid #4a5568;
-  box-shadow: 0 0 10px rgba(128, 90, 213, 0.1);
-  font-weight: 400;
+/* AI-related styling */
+.thinking, .command {
+  color: #e2e8f0;
+  background-color: rgba(45, 55, 72, 0.95);
+  border: 1px solid rgba(165, 243, 252, 0.2);
+  box-shadow: 0 0 20px rgba(165, 243, 252, 0.1);
+  margin-left: 2rem;
+  position: relative;
+}
+
+/* .thinking::before, .command::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  width: 1.5rem;
+  height: 2px;
+  background: rgba(165, 243, 252, 0.3);
+} */
+
+.thinking-header, .command-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(165, 243, 252, 0.2);
 }
 
 .ai-badge {
-  font-family: 'IBM Plex Mono', monospace;
-  background-color: #805ad5;
-  color: white;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
+  font-family: 'Space Grotesk', sans-serif;
+  background: linear-gradient(135deg, rgba(165, 243, 252, 0.2), rgba(165, 243, 252, 0.1));
+  color: #a5f3fc;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  border: 1px solid rgba(165, 243, 252, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.command {
-  color: #68d391;
-  background-color: #1a202c;
-  border: 1px solid #2d3748;
-  box-shadow: 0 0 10px rgba(104, 211, 145, 0.1);
-  font-weight: 500;
+.thinking .ai-badge {
+  border-color: rgba(168, 85, 247, 0.4);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.1));
+  color: rgb(216, 180, 254);
+}
+
+.command .ai-badge {
+  border-color: rgba(74, 222, 128, 0.4);
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.2), rgba(74, 222, 128, 0.1));
+  color: rgb(134, 239, 172);
 }
 
 .text {
   white-space: pre-wrap;
   margin: 0;
   font-family: inherit;
-  line-height: 1.6;
+  line-height: 1.8;
+}
+
+.thinking-icon, .command-icon {
+  font-size: 1.2rem;
+}
+
+/* Add animation delay for sequential messages */
+.message:nth-child(1) { animation-delay: 0.1s; }
+.message:nth-child(2) { animation-delay: 0.2s; }
+.message:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes messageSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

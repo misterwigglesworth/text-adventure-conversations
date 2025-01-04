@@ -9,14 +9,18 @@ const Conversation = () => {
         <div key={index} className={`message ${entry.type}`}>
           {entry.type === "thinking" && (
             <div className="thinking-header">
-              <span className="ai-badge">AI THINKING</span>
-              <span className="thinking-icon">🤔</span>
+              <span className="ai-badge">
+                <span>🤖</span>
+                <span>AI THINKING</span>
+              </span>
             </div>
           )}
           {entry.type === "command" && (
             <div className="command-header">
-              <span className="ai-badge">AI ACTION</span>
-              <span className="command-icon">▶</span>
+              <span className="ai-badge">
+                <span>⚡</span>
+                <span>AI ACTION</span>
+              </span>
             </div>
           )}
           <pre className="text">{entry.text}</pre>
