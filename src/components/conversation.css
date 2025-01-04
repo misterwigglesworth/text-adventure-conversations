@@ -1,128 +1,120 @@
-/* src/components/Conversation.css */
+/* src/components/conversation.css */
 .conversation {
   max-width: 800px;
   width: 100%;
   margin: 2rem auto;
   padding: 1.5rem;
-  background-color: #1f1f1f;
-  border-radius: 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(30, 30, 46, 0.7);
+  border-radius: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  letter-spacing: -0.2px;
+  line-height: 1.6;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .message {
   margin-bottom: 1.5rem;
-  padding: 1rem 1.25rem;
-  border-radius: 8px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  animation: fadeIn 0.5s ease forwards;
-  opacity: 0; /* Start hidden, fadeIn will make it visible */
+  padding: 1.25rem;
+  border-radius: 12px;
+  animation: messageSlideIn 0.3s ease-out forwards;
+  opacity: 0;
+  transform: translateY(10px);
+  position: relative;
 }
 
-.message:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
+/* Game narration styling */
 .narration {
-  color: #e0e0e0;
-  background-color: #2c2c2c;
-  border-left: 5px solid #818CF8;
-  font-weight: 500;
+  color: #e2e8f0;
+  background-color: rgba(42, 42, 58, 0.8);
+  border-left: 4px solid #80ffdb;
+  font-weight: 400;
+  margin-left: 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.thinking {
-  color: #d4d4d8;
-  background-color: #2d3748;
-  border: 1px solid #4a5568;
-  box-shadow: 0 0 15px rgba(104, 211, 145, 0.2);
-  font-weight: 500;
+/* AI-related styling */
+.thinking, .command {
+  color: #e2e8f0;
+  background-color: rgba(45, 55, 72, 0.95);
+  border: 1px solid rgba(128, 255, 219, 0.2);
+  box-shadow: 0 0 20px rgba(128, 255, 219, 0.1);
+  margin-left: 2rem;
+  position: relative;
+}
+
+/* .thinking::before, .command::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  width: 1.5rem;
+  height: 2px;
+  background: rgba(165, 243, 252, 0.3);
+} */
+
+.thinking-header, .command-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(165, 243, 252, 0.2);
 }
 
 .ai-badge {
-  font-family: 'Inter', sans-serif;
-  background-color: #4ade80;
-  color: #1f1f1f;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  display: inline-block;
-  margin-bottom: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  background: linear-gradient(135deg, rgba(128, 255, 219, 0.2), rgba(128, 255, 219, 0.1));
+  color: #80ffdb;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border: 1px solid rgba(128, 255, 219, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.command {
-  color: #f59e0b;
-  background-color: #1a202c;
-  border: 1px solid #2d3748;
-  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
-  font-weight: 600;
+.thinking .ai-badge {
+  border-color: rgba(168, 85, 247, 0.4);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.1));
+  color: rgb(216, 180, 254);
+}
+
+.command .ai-badge {
+  border-color: rgba(100, 255, 200, 0.4);
+  background: linear-gradient(135deg, rgba(100, 255, 200, 0.2), rgba(100, 255, 200, 0.1));
+  color: #90ffd1;
 }
 
 .text {
   white-space: pre-wrap;
   margin: 0;
   font-family: inherit;
-  line-height: 1.7;
-  color: #e0e0e0;
+  line-height: 1.8;
 }
 
-.thinking-header,
-.command-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
+.thinking-icon, .command-icon {
+  font-size: 1.2rem;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
+/* Add animation delay for sequential messages */
+.message:nth-child(1) { animation-delay: 0.1s; }
+.message:nth-child(2) { animation-delay: 0.2s; }
+.message:nth-child(3) { animation-delay: 0.3s; }
+.message:nth-child(4) { animation-delay: 0.4s; }
+.message:nth-child(5) { animation-delay: 0.5s; }
+.message:nth-child(6) { animation-delay: 0.6s; }
+.message:nth-child(7) { animation-delay: 0.7s; }
+.message:nth-child(8) { animation-delay: 0.8s; }
+.message:nth-child(9) { animation-delay: 0.9s; }
+
+@keyframes messageSlideIn {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-.button {
-  padding: 0.6rem 1.2rem;
-  background-color: #4ade80;
-  color: #1f1f1f;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.button:hover {
-  background-color: #3cb371;
-  transform: translateY(-2px);
-}
-
-.button:active {
-  transform: translateY(0);
-}
-
-@media (max-width: 600px) {
-  .conversation {
-    padding: 1rem;
-  }
-
-  .text {
-    font-size: 0.9rem;
-  }
-
-  .ai-badge {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.4rem;
-  }
-
-  h1 {
-    font-size: 2rem;
   }
 }

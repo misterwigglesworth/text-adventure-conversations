@@ -11,16 +11,16 @@ const Conversation = () => {
           {entry.type === "thinking" && (
             <div className="thinking-header">
               <span className="ai-badge">
-                <FaBrain style={{ marginRight: "0.3rem" }} />
-                AI THINKING
+                <span>🤖</span>
+                <span>AI THINKING</span>
               </span>
             </div>
           )}
           {entry.type === "command" && (
             <div className="command-header">
               <span className="ai-badge">
-                <FaPlay style={{ marginRight: "0.3rem" }} />
-                AI ACTION
+                <span>⚡</span>
+                <span>AI ACTION</span>
               </span>
             </div>
           )}
