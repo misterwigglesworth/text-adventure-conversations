@@ -25,7 +25,7 @@ export const conversation = [
   {
     type: "narration",
     text: `The room is quiet except for the sound of your movement. A digital
-    clock on the entertainment center is dark, and a maintenance notice
+    clock on the entertainment center is dark, and a maintenance note
     is stuck to its side. A flashlight sits on a side table.
     A family photo sits on the mantlepiece, barely visible in the dim light.
     Doorways lead north to the kitchen and east to the utility room.`,
@@ -34,7 +34,7 @@ export const conversation = [
     type: "thinking",
     text: `Ah, good - I can see several key items:
     1. A flashlight - that will be crucial for better visibility
-    2. A maintenance notice on the clock - might explain the power situation
+    2. A maintenance note on the clock - might explain the power situation
     3. Passages to kitchen and utility room - utility room might have circuit breakers
     Let me grab the flashlight first.`,
   },
@@ -50,7 +50,7 @@ export const conversation = [
     type: "thinking",
     text: `Now that I have the flashlight, I should:
     1. Turn it on to see better
-    2. Check that maintenance notice - might explain what's going on
+    2. Check that maintenance note - might explain what's going on
     3. After that, the utility room seems like a logical place to investigate`,
   },
   {
@@ -68,15 +68,15 @@ export const conversation = [
     - Kitchen drawers
     - Utility room
     - Entertainment centers/remotes
-    Let me first check that maintenance notice on the clock - it might give me useful information.`,
+    Let me first check that maintenance note on the clock - it might give me useful information.`,
   },
   {
     type: "command",
-    text: "examine maintenance notice",
+    text: "examine maintenance note",
   },
   {
     type: "narration",
-    text: `Notice reads: 'Recent electrical maintenance completed. -Building Services'`,
+    text: `Note reads: 'Recent electrical maintenance completed. -Building Services'`,
   },
   {
     type: "thinking",
@@ -153,7 +153,7 @@ export const conversation = [
   {
     type: "narration",
     text: `Opening the panel reveals rows of circuit breakers. One of them
-    is in the OFF position, but it won't stay flipped. There's a note
+    is in the OFF position, but it won't stay flipped. There's a n\u200Bote
     about the 'main power' being in the basement.`,
   },
   {
@@ -373,7 +373,7 @@ familiar hum of electronics returns. Well done!`,
     3. Resetting the tripped sensor
     4. Restoring the main power switch
 
-    The maintenance notice upstairs makes more sense now - they must have been working on the electrical system and the sensor got tripped during the process.`,
+    The maintenance note upstairs makes more sense now - they must have been working on the electrical system and the sensor got tripped during the process.`,
   },
   {
     type: "narration",
