@@ -1,0 +1,16 @@
+/* src/App.css */
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  color: white;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  color: #68d391;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+}
