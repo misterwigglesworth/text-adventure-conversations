@@ -1,5 +1,5 @@
 // src/components/Conversation.jsx
-import { conversation } from "../data/conversation";
+import { conversation } from "../data/sonnet-3.5";
 import "./conversation.css";
 
 const interactableWords = {
@@ -16,12 +16,14 @@ const interactableWords = {
     "electrical panel",
     "workbench",
     "tools",
+    "photo",
+    "clock",
   ],
   useable: ["sensor", "switch", "drawers", "batteries", "flashlight"],
   takeable: ["batteries", "flashlight"],
 };
 
-const Conversation = () => {
+const Conversation = ({ conversation }) => {
   const formatText = (text, messageType) => {
     // First handle XML tags
     const parts = text

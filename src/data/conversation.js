@@ -1,382 +1,318 @@
 export const conversation = [
   {
-    type: "narration",
+    type: 'narration',
     text: `You find yourself in a dark living room. The usual hum of electronics
     is notably absent. Without the air conditioning running, the room
     feels uncomfortably warm.
     
-    Type 'help' for a list of commands.
-    
-    [Use <thinking></thinking> tags to write notes to yourself or
-    think through anything you like.]`,
+    Type 'help' for a list of commands.`
   },
   {
-    type: "thinking",
-    text: `This seems to be a power outage scenario in a living room. It's dark and warm due to no electricity. I should:
-    1. Try to understand what I can see/interact with
-    2. Look for alternate light sources
-    3. Figure out what happened with the power
-    Let me start by looking around.`,
+    type: 'thinking',
+    text: `Okay, so the power is out, that's why it's dark and warm. I need to figure out what to do next. I should try to find a light source or a way to turn the power back on. Maybe there's a flashlight or a candle somewhere in the room. Or perhaps I can find a way to open a window to get some air circulating. I'll start by trying to feel my way around the room and see if I can find anything useful.`
   },
   {
-    type: "command",
-    text: "look",
+    type: 'command',
+    text: 'help'
   },
   {
-    type: "narration",
+    type: 'narration',
+    text: `Available commands:\n\nlook (l): Look around the current room\ninventory (i): Check your inventory\nexamine (x) [object]: Look at something more closely\ntake/get [object]: Pick up an object\nuse [object] (with [object]): Use an object or combine items\ngo [direction]: Move in a direction (north, south, east, west, up, down)\nhelp (h): Show this help message\nquit: Exit the game`
+  },
+  {
+    type: 'thinking',
+    text: `Now that I have the list of available commands, I can start exploring the room. Since it's dark, I'll start by trying to get a better sense of my surroundings.`
+  },
+  {
+    type: 'command',
+    text: 'look'
+  },
+  {
+    type: 'narration',
     text: `The room is quiet except for the sound of your movement. A digital
-    clock on the entertainment center is dark, and a maintenance note
+    clock on the entertainment center is dark, and a maintenance notice
     is stuck to its side. A flashlight sits on a side table.
     A family photo sits on the mantlepiece, barely visible in the dim light.
-    Doorways lead north to the kitchen and east to the utility room.`,
+    Doorways lead north to the kitchen and east to the utility room.`
   },
   {
-    type: "thinking",
-    text: `Ah, good - I can see several key items:
-    1. A flashlight - that will be crucial for better visibility
-    2. A maintenance note on the clock - might explain the power situation
-    3. Passages to kitchen and utility room - utility room might have circuit breakers
-    Let me grab the flashlight first.`,
+    type: 'thinking',
+    text: `It sounds like I've got a few things to work with here. I've got a flashlight that could potentially provide some light, and a couple of doorways that lead to other rooms. I'm also curious about the maintenance notice on the digital clock. First things first, I should probably get some light going. That flashlight on the side table could be really useful. Once I've got some light, I can take a closer look at the maintenance notice and see if it gives me any clues about what's going on. After that, I can decide whether to head to the kitchen or the utility room.`
   },
   {
-    type: "command",
-    text: "take flashlight",
+    type: 'command',
+    text: 'take flashlight'
   },
   {
-    type: "narration",
-    text: `You take the flashlight.`,
+    type: 'narration',
+    text: `You take the flashlight.`
   },
   {
-    type: "thinking",
-    text: `Now that I have the flashlight, I should:
-    1. Turn it on to see better
-    2. Check that maintenance note - might explain what's going on
-    3. After that, the utility room seems like a logical place to investigate`,
+    type: 'command',
+    text: 'use flashlight'
   },
   {
-    type: "command",
-    text: "use flashlight",
+    type: 'narration',
+    text: `The flashlight needs batteries.`
   },
   {
-    type: "narration",
-    text: `The flashlight doesn't have any batteries.`,
+    type: 'thinking',
+    text: `It seems like the flashlight isn't going to be of much use without batteries. I'll have to keep an eye out for some batteries as I explore the house. Maybe I'll find some in the kitchen or the utility room. For now, I'll just have to put the flashlight back and try to navigate in the dark. Let me think about which room to head to first. The kitchen might have some candles or other light sources, but the utility room might have some information about the power outage or some tools that could be useful.`
   },
   {
-    type: "thinking",
-    text: `Ah, that explains why it didn't work. I'll need to find batteries.
-    Common places for batteries:
-    - Kitchen drawers
-    - Utility room
-    - Entertainment centers/remotes
-    Let me first check that maintenance note on the clock - it might give me useful information.`,
+    type: 'command',
+    text: 'go north'
   },
   {
-    type: "command",
-    text: "examine maintenance note",
-  },
-  {
-    type: "narration",
-    text: `Note reads: 'Recent electrical maintenance completed. -Building Services'`,
-  },
-  {
-    type: "thinking",
-    text: `Hmm, so there was recent electrical work done. This power outage might be related.
-    Given that I need batteries and there might be electrical issues:
-    1. The utility room would be a good place to check both for batteries and the circuit breaker
-    2. Kitchen drawers are also a common place for batteries
-    Let me try the utility room first since it might solve both problems.`,
-  },
-  {
-    type: "command",
-    text: "go east",
-  },
-  {
-    type: "narration",
-    text: `You enter a narrow utility room. A large grey panel is mounted on
-    one wall, barely visible in the dim light filtering in from the
-    living room.`,
-  },
-  {
-    type: "thinking",
-    text: `Perfect - that grey panel is likely the circuit breaker panel.
-    Since it's dark, I should:
-    1. Look around carefully for any batteries first
-    2. Then examine the circuit breaker panel`,
-  },
-  {
-    type: "command",
-    text: "look",
-  },
-  {
-    type: "narration",
-    text: `This cramped space serves as the house's mechanical heart. A large
-    electrical panel dominates one wall, while a workbench runs along
-    another. A doorway west leads back to the living room, and stairs
-    descend to the basement.`,
-  },
-  {
-    type: "thinking",
-    text: `A workbench might have batteries or tools. Let me check that before examining the electrical panel.`,
-  },
-  {
-    type: "command",
-    text: "examine workbench",
-  },
-  {
-    type: "narration",
-    text: `The workbench is cluttered with maintenance supplies and tools.
-    You notice some wiring diagrams and a troubleshooting manual.`,
-  },
-  {
-    type: "thinking",
-    text: `The presence of wiring diagrams and a manual could be helpful. Let me:
-    1. Check the manual first - might have info about the electrical system
-    2. Then examine the electrical panel`,
-  },
-  {
-    type: "command",
-    text: "examine troubleshooting manual",
-  },
-  {
-    type: "narration",
-    text: `The manual describes the inner workings of the water heater`,
-  },
-  {
-    type: "thinking",
-    text: `Not what I was hoping for - it's about the water heater, not the electrical system.
-    Let me check the electrical panel now, since that's the most likely source of our power problems.`,
-  },
-  {
-    type: "command",
-    text: "examine electrical panel",
-  },
-  {
-    type: "narration",
-    text: `Opening the panel reveals rows of circuit breakers. One of them
-    is in the OFF position, but it won't stay flipped. There's a n\u200Bote
-    about the 'main power' being in the basement.`,
-  },
-  {
-    type: "thinking",
-    text: `Aha! Two important pieces of information:
-    1. There's a tripped breaker that won't reset - could indicate a serious electrical issue
-    2. The main power control is in the basement
-    Since the breaker won't stay flipped, I need to check the main power in the basement.`,
-  },
-  {
-    type: "command",
-    text: "go down",
-  },
-  {
-    type: "narration",
-    text: `It's too dark to go that way without a light source.`,
-  },
-  {
-    type: "thinking",
-    text: `Right - I still need batteries for the flashlight before I can safely go to the basement.
-    Let me try the kitchen for batteries, since that's a common place to store them.`,
-  },
-  {
-    type: "command",
-    text: "go west",
-  },
-  {
-    type: "command",
-    text: "go north",
-  },
-  {
-    type: "narration",
+    type: 'narration',
     text: `The kitchen is eerily quiet without the usual hum of appliances.
-    Your footsteps echo slightly on the tile floor.`,
+    Your footsteps echo slightly on the tile floor.`
   },
   {
-    type: "thinking",
-    text: `Most kitchens keep useful items like batteries in drawers. Let me look around carefully.`,
+    type: 'thinking',
+    text: `Now that I'm in the kitchen, I should try to feel my way around and see if I can find any candles, matches, or other light sources. Maybe there's a drawer or a cabinet that has some flashlights or batteries in it. I'll also keep an eye out for any other useful items, like a first aid kit or a phone.`
   },
   {
-    type: "command",
-    text: "look",
+    type: 'command',
+    text: 'look'
   },
   {
-    type: "narration",
+    type: 'narration',
     text: `A modern kitchen with standard appliances, all currently silent and dark.
     The drawers and cabinets look well-organized. A doorway south leads
-    back to the living room.`,
+    back to the living room.`
   },
   {
-    type: "thinking",
-    text: `Let me check the drawers - that's typically where people store batteries, along with other household items.`,
+    type: 'thinking',
+    text: `It sounds like a typical kitchen, but without the usual sounds and lights, it feels a bit eerie. Since the drawers and cabinets look well-organized, I might be able to find what I'm looking for without too much trouble. I'll start by checking the drawers and see if I can find any candles, matches, or flashlights. Maybe there's a junk drawer with some batteries in it, or a utility drawer with some other useful items.`
   },
   {
-    type: "command",
-    text: "examine drawers",
+    type: 'command',
+    text: 'examine drawers'
   },
   {
-    type: "narration",
-    text: `The drawers contain typical kitchen items. In one drawer, you spot a package of batteries among the utensils.`,
+    type: 'narration',
+    text: `The drawers contain typical kitchen items. In one drawer, you spot a package of batteries among the utensils.`
   },
   {
-    type: "thinking",
-    text: `Perfect! Found the batteries. Let me:
-    1. Take them
-    2. Then try to use them with the flashlight
-    3. After that, I can safely check the basement`,
+    type: 'thinking',
+    text: `Batteries! That's exactly what I needed for the flashlight. Now that I've found the batteries, I can go back to the living room and try to use the flashlight. With a little light, I should be able to get a better sense of my surroundings and maybe find some other useful items. After that, I can decide whether to keep exploring the house or try to find a way to restore the power.`
   },
   {
-    type: "command",
-    text: "take batteries",
+    type: 'command',
+    text: 'take batteries'
   },
   {
-    type: "narration",
-    text: `You take the batteries.`,
+    type: 'narration',
+    text: `You take the batteries.`
   },
   {
-    type: "thinking",
-    text: `Now I need to put the batteries in the flashlight and turn it on.`,
+    type: 'command',
+    text: 'go south'
   },
   {
-    type: "command",
-    text: "use batteries with flashlight",
+    type: 'narration',
+    text: `The room is quiet except for the sound of your movement. A digital
+    clock on the entertainment center is dark, and a maintenance notice
+    is stuck to its side. A flashlight sits on a side table.
+    A family photo sits on the mantlepiece, barely visible in the dim light.
+    Doorways lead north to the kitchen and east to the utility room.`
   },
   {
-    type: "narration",
-    text: `You install the batteries in the flashlight. It's now ready to use.`,
+    type: 'command',
+    text: 'use flashlight with batteries'
   },
   {
-    type: "thinking",
-    text: `Great! Now that I have a working flashlight, I can:
-    1. Go back to the utility room
-    2. Go down to the basement to check the main power`,
+    type: 'narration',
+    text: `You install the batteries in the flashlight. It's now ready to use.`
   },
   {
-    type: "command",
-    text: "go south",
+    type: 'command',
+    text: 'use flashlight'
   },
   {
-    type: "command",
-    text: "go east",
+    type: 'narration',
+    text: `The flashlight illuminates the area.`
   },
   {
-    type: "command",
-    text: "go down",
+    type: 'thinking',
+    text: `Finally, some light! Now that I can see, I'll take a closer look around the room. Wait, I thought the flashlight would illuminate the room better than that. Let me try to shine the flashlight around the room to get a better look.`
   },
   {
-    type: "narration",
+    type: 'command',
+    text: 'use flashlight to illuminate the room'
+  },
+  {
+    type: 'narration',
+    text: `The flashlight illuminates the area.`
+  },
+  {
+    type: 'thinking',
+    text: `I'll shine the flashlight around the room to get a better look. Ah, that's better. Now I can see the details of the room more clearly. With the flashlight, I can see that the maintenance notice on the digital clock is probably worth reading. And the family photo on the mantlepiece might be interesting to look at too.`
+  },
+  {
+    type: 'command',
+    text: 'examine maintenance notice'
+  },
+  {
+    type: 'narration',
+    text: `Notice reads: 'Recent electrical maintenance completed.'`
+  },
+  {
+    type: 'thinking',
+    text: `That's interesting. The notice says that recent electrical maintenance was completed, but the power is still out. This suggests that the power outage might not be related to the maintenance, or maybe the maintenance didn't go as planned. I'll have to keep this in mind as I explore the house further. Maybe there's a problem with the electrical system that needs to be addressed.`
+  },
+  {
+    type: 'command',
+    text: 'examine digital clock and entertainment center'
+  },
+  {
+    type: 'narration',
+    text: `The digital display on the clock shows no numbers at all. It seems lifeless. Everything on the entertainment centered is powered down. The clock that usually shows 12:00 is completely dark.`
+  },
+  {
+    type: 'thinking',
+    text: `The digital clock and the entertainment center are both completely dead, which suggests that the power outage is pretty extensive. I've explored the living room and the kitchen, and I haven't found any obvious clues about what's causing the power outage. Maybe it's time to check out the utility room and see if there are any clues there. The utility room might have some information about the electrical system or the maintenance that was done.`
+  },
+  {
+    type: 'command',
+    text: 'go east'
+  },
+  {
+    type: 'narration',
+    text: `You enter a narrow utility room. A large grey panel is mounted on
+    one wall, barely visible in the dim light filtering in from the
+    living room.`
+  },
+  {
+    type: 'command',
+    text: 'use flashlight on grey panel'
+  },
+  {
+    type: 'narration',
+    text: `The flashlight illuminates the area.`
+  },
+  {
+    type: 'thinking',
+    text: `Now that the area is lit up, I can see the grey panel more clearly. It looks like it might be the main electrical panel for the house. I'll take a closer look at the panel and see if there are any signs of trouble or any clues about what's going on. Maybe there's a blown fuse or a tripped circuit breaker that's causing the power outage.`
+  },
+  {
+    type: 'command',
+    text: 'examine grey panel'
+  },
+  {
+    type: 'narration',
+    text: `Opening the panel reveals rows of circuit breakers. One of them
+    is in the OFF position, but it won't stay flipped. There's a note
+    about the 'main power' being in the basement.`
+  },
+  {
+    type: 'thinking',
+    text: `It looks like I've found a clue. The circuit breaker that's in the OFF position won't stay flipped, which suggests that there might be a problem with the electrical system. And the note about the "main power" being in the basement is interesting. It sounds like the basement might be where I'll find the main electrical panel or the source of the power outage. I'll need to head to the basement to investigate further. Maybe I'll find a way to restore the power or get a better understanding of what's going on. I'll have to be careful, though - if there's a problem with the electrical system, I don't want to get shocked or hurt.`
+  },
+  {
+    type: 'command',
+    text: 'go down'
+  },
+  {
+    type: 'narration',
     text: `The basement stairs lead down into thick darkness. You can barely
     make out anything except for a faint red glow from what might be
-    emergency lighting.`,
+    emergency lighting.`
   },
   {
-    type: "thinking",
-    text: `The red glow is likely an emergency exit light or indicator.
-    Now that I have a working flashlight, I should be able to see better.`,
+    type: 'command',
+    text: 'use flashlight to light the stairs'
   },
   {
-    type: "command",
-    text: "use flashlight",
+    type: 'command',
+    text: 'go down'
   },
   {
-    type: "narration",
-    text: `The flashlight illuminates the area.`,
+    type: 'narration',
+    text: `The flashlight illuminates the area.\nYou can't go down.`
   },
   {
-    type: "thinking",
-    text: `Now I can properly look around the basement and try to find the main power control mentioned in the panel upstairs.`,
+    type: 'thinking',
+    text: `It seems that I'm already at the bottom of the stairs, and the "go down" command isn't applicable. Now that I'm in the basement, I'll take a closer look around. The faint red glow I saw earlier is probably from some kind of emergency lighting, and I'd like to see where it's coming from and what it's illuminating.`
   },
   {
-    type: "command",
-    text: "look",
+    type: 'command',
+    text: 'look'
   },
   {
-    type: "narration",
+    type: 'narration',
     text: `Emergency backup lights cast dim red beams across the basement.
     The main electrical panel dominates the north wall, with a heavy
     switch prominently mounted. Near a small window well, you notice
-    a small external sensor box.`,
+    a small external sensor box.`
   },
   {
-    type: "thinking",
-    text: `Perfect - I've found the main power panel. The external sensor box might also be relevant - could be related to the electrical system. Let me:
-    1. First examine the main electrical panel
-    2. Then check out that sensor box if needed`,
+    type: 'thinking',
+    text: `The emergency backup lights are casting a dim red glow over the basement, and I can see the main electrical panel on the north wall. That heavy switch looks like it might be important - maybe it's a master switch or a cutoff switch for the main power. And I've also noticed a small external sensor box near a small window well. That could be interesting - maybe it's related to the electrical system or the backup power. I'll take a closer look at the main electrical panel and that heavy switch. Maybe I can find a way to restore the power or get a better understanding of what's going on. And I'll also check out the sensor box - it might have some clues or information that can help me.`
   },
   {
-    type: "command",
-    text: "examine switch",
+    type: 'command',
+    text: 'examine main electrical panel and heavy switch'
   },
   {
-    type: "narration",
-    text: `This is clearly the main power disconnect. The switch is in the OFF position and appears to be locked.`,
+    type: 'narration',
+    text: `This is clearly the main power disconnect. The switch is in the OFF position.`
   },
   {
-    type: "thinking",
-    text: `Ah, this explains everything - the main power is switched off and locked. This must be related to the maintenance work mentioned in the notice upstairs.
-    Since it's locked, I should check that sensor box - it might give me more information about what's going on.`,
+    type: 'thinking',
+    text: `So the main power disconnect switch is in the OFF position, which explains why the power is out. This is probably the key to restoring the power. If I flip the switch to the ON position, it should restore the power to the house. But I'll make sure to check the sensor box and the rest of the area to make sure there aren't any other issues or warnings before I do that.`
   },
   {
-    type: "command",
-    text: "examine sensor box",
+    type: 'command',
+    text: 'use heavy switch'
   },
   {
-    type: "narration",
-    text: `The sensor appears to be in a tripped state. There's a reset button.`,
+    type: 'narration',
+    text: `The switch seems to be locked.`
   },
   {
-    type: "thinking",
-    text: `A tripped sensor with a reset button - this could be the root cause of our power issues. Let me:
-    1. Try pressing the reset button
-    2. Then check if we can unlock/restore the main power`,
+    type: 'thinking',
+    text: `It seems that the switch is locked, which means I won't be able to flip it to the ON position without finding a way to unlock it. I'll need to search the area and see if I can find a key or a way to unlock the switch. Maybe there's a lockbox or a hidden compartment nearby that contains the key. Or maybe the sensor box has some information or a clue about how to unlock the switch.`
   },
   {
-    type: "command",
-    text: "use sensor",
+    type: 'command',
+    text: 'examine sensor box'
   },
   {
-    type: "narration",
-    text: `You press the reset button. The light changes from red to green.`,
+    type: 'narration',
+    text: `The sensor appears to be in a tripped state. There's a reset button.`
   },
   {
-    type: "thinking",
-    text: `Great! The sensor is reset. Now that it's showing green instead of red:
-    1. Let's check if the main power switch is still locked
-    2. If it's unlocked now, we can try to turn it back on`,
+    type: 'thinking',
+    text: `The sensor is in a tripped state, which might be related to the switch being locked. And there's a reset button, which could potentially reset the sensor and unlock the switch. I'll try pressing the reset button to see if it resets the sensor and unlocks the switch. This could be the key to restoring the power.`
   },
   {
-    type: "command",
-    text: "examine switch",
+    type: 'command',
+    text: 'use sensor box reset button'
   },
   {
-    type: "narration",
-    text: `This is clearly the main power disconnect. The switch is in the OFF position.`,
+    type: 'narration',
+    text: `You press the reset button. The light changes from red to green.`
   },
   {
-    type: "thinking",
-    text: `The switch description no longer mentions it being locked - that's progress! Now that the sensor is reset and the switch appears unlocked, I should be able to turn it back on.`,
+    type: 'thinking',
+    text: `The reset button has been pressed, and the light on the sensor box has changed from red to green. This suggests that the sensor has been reset, and possibly the lock on the main power disconnect switch has been released. Now that the sensor has been reset, I'll try to flip the main power disconnect switch to the ON position and see if it restores the power.`
   },
   {
-    type: "command",
-    text: "use switch",
+    type: 'command',
+    text: 'use heavy switch'
   },
   {
-    type: "narration",
+    type: 'narration',
     text: `You flip the switch. Power is restored to the house!
 
 Congratulations! You've restored power to the house!
-The l\u200Bights flicker on throughout the building, and the
-familiar hum of electronics returns. Well done!`,
+The lights flicker on throughout the building, and the
+familiar hum of electronics returns. Well done!`
   },
   {
-    type: "thinking",
-    text: `Success! We solved the power outage by:
-    1. Finding batteries for the flashlight
-    2. Locating the main power control in the basement
-    3. Resetting the tripped sensor
-    4. Restoring the main power switch
-
-    The maintenance note upstairs makes more sense now - they must have been working on the electrical system and the sensor got tripped during the process.`,
-  },
-  {
-    type: "narration",
-    text: `Thank you! It's satisfying to hear those electronics humming again!`,
-  },
+    type: 'thinking',
+    text: `I'm glad I was able to restore the power to the house. It was a bit of a challenge, but I was able to figure it out by exploring the house, finding clues, and using the items I found to overcome obstacles. Thanks for the game, it was a lot of fun! If you want to play again or try a different adventure, just let me know!`
+  }
 ];

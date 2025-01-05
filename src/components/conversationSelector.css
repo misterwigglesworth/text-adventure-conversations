@@ -1,0 +1,30 @@
+/* src/components/conversationSelector.css */
+.conversation-selector {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+}
+
+.conversation-selector select {
+  background: rgba(42, 42, 58, 1);
+  color: #80ffdb;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(128, 255, 219, 0.3);
+  border-radius: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  max-width: 400px;
+}
+
+.conversation-selector select:focus {
+  outline: none;
+  border-color: rgba(128, 255, 219, 0.6);
+  box-shadow: 0 0 0 2px rgba(128, 255, 219, 0.2);
+}
+
+.conversation-selector option {
+  background: rgba(30, 30, 46, 1);
+  color: #80ffdb;
+}
